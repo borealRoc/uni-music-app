@@ -2,7 +2,7 @@
 	<view class="banner">
 		<swiper class="swiper" :autoplay="true" :indicator-dots="true" indicator-active-color="#ff372b"
 			indicator-color='rgba(255,255,255, .5)' duration="500" :circular="true">
-			<swiper-item v-for="(item,index) in swiper" :key="index">
+			<swiper-item v-for="(item,index) in banners" :key="index">
 				<view class="item">
 					<image :src="item.imageUrl" class="img"></image>
 					<view class="tag">{{item.typeTitle}}</view>
@@ -15,7 +15,7 @@
 <script>
 	export default {
 		props: {
-			swiper: {
+			banners: {
 				type: Array,
 				require: true,
 				default () {

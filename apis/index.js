@@ -9,3 +9,11 @@ export function apiGetBanner(data) {
 		authType: 'None'
 	})
 }
+// 获取推荐歌单
+export function apiGetRecommendSongs(data) {
+	return request.request({
+		url: '/personalized',
+		method: 'GET',
+		data,
+	})
+}

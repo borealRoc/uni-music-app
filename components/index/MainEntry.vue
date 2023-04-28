@@ -1,6 +1,6 @@
 <template>
 	<view class="recommend flex-box">
-		<view class="flex-item" v-for="(item, index) in recommends" :key="index" @click="goUrl(item)">
+		<view class="flex-item" v-for="(item, index) in entrys" :key="index" @click="goUrl(item)">
 			<image :src="'/static/image/index/t_' + (index + 1) + '.png'" class="img"></image>
 			<view>{{ item.name }}</view>
 			<view v-if="index == 0" class="date">{{ curDate }}</view>
@@ -11,7 +11,7 @@
 <script>
 	export default {
 		props: {
-			recommends: {
+			entrys: {
 				type: Array,
 				require: true,
 				default () {
