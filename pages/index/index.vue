@@ -1,52 +1,52 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-		</view>
+	<view class="music-find-page">
+		<banner :swiper="swiper"></banner>
+		<recommend :recommends="recommends"></recommend>
 	</view>
 </template>
 
 <script>
+	import {
+		apiGetBanner
+	} from '@/apis/index.js';
+	import Banner from "../../components/index/Banner.vue"
+	import Recommend from "../../components/index/Recommend.vue"
 	export default {
 		data() {
 			return {
-				title: 'Hello Uni'
+				swiper: [],
+				recommends: [{
+					name: '每日推荐'
+				}, {
+					name: '歌单'
+				}, {
+					name: '排行榜',
+					url: '/pages/subpages/index/rank'
+				}, {
+					name: '电台'
+				}, {
+					name: '直播'
+				}],
 			}
 		},
+		components: {
+			Banner,
+			Recommend
+		},
 		onLoad() {
-
+			this.getBanner()
 		},
 		methods: {
-
+			// 获取轮播图
+			getBanner() {
+				apiGetBanner().then(res => {
+					this.swiper = res.banners
+				})
+			},
 		}
 	}
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+<style lang="scss">
+	@import "../../css/found.scss";
 </style>

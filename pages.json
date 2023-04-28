@@ -3,43 +3,46 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "发现",
+				"app-plus": {
+					"titleNView": false
+				}
 			}
 		}, {
 			"path": "pages/account/index",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "账户",
 				"enablePullDownRefresh": false
 			}
 
 		}, {
 			"path": "pages/cloud/index",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "云村",
 				"enablePullDownRefresh": false
 			}
 
 		}, {
 			"path": "pages/mine/index",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "我的",
 				"enablePullDownRefresh": false
 			}
 
 		}, {
 			"path": "pages/video/index",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "视频",
 				"enablePullDownRefresh": false
 			}
 
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarTextStyle": "black",     // 导航栏标题颜色及状态栏前景颜色，仅支持 black/white
+		"navigationBarTitleText": "网易云音乐",   // 导航栏标题文字内容
+		"navigationBarBackgroundColor": "#F8F8F8",  // 导航栏背景颜色（同状态栏背景色）
+		"backgroundColor": "#F8F8F8" // 窗口的背景色
 	},
 	"uniIdRouter": {},
 	"tabBar": {

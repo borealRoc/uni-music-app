@@ -4,6 +4,8 @@ import App from './App'
 import Vue from 'vue'
 Vue.config.productionTip = false
 App.mpType = 'app'
+import './css/index.scss'
+
 
 try {
   function isPromise(obj) {
