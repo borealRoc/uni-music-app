@@ -40,9 +40,10 @@
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",     // 导航栏标题颜色及状态栏前景颜色，仅支持 black/white
-		"navigationBarTitleText": "网易云音乐",   // 导航栏标题文字内容
+		"navigationBarTitleText": "Uni App Music",   // 导航栏标题文字内容
 		"navigationBarBackgroundColor": "#F8F8F8",  // 导航栏背景颜色（同状态栏背景色）
-		"backgroundColor": "#F8F8F8" // 窗口的背景色
+		"backgroundColor": "#F8F8F8", // 窗口的背景色
+		"navigationStyle": "custom"
 	},
 	"uniIdRouter": {},
 	"tabBar": {

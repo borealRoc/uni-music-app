@@ -2,18 +2,23 @@
 	<view class="music-find-page">
 		<banner :banners="banners"></banner>
 		<main-entry :entrys="entrys"></main-entry>
-		<recommend-song title="推荐歌单" :songs="songs"></recommend-song>
+		<recommend-song title="推荐歌单" :recommendSongs="recommendSongs" :latestAlbums="latestAlbums"
+			@switchAlbum="switchAlbum"></recommend-song>
+		<recommend-video title="精选视频" :recommendVideos="recommendVideos"></recommend-video>
 	</view>
 </template>
 
 <script>
 	import {
 		apiGetBanner,
-		apiGetRecommendSongs
+		apiGetRecommendSongs,
+		apiGetLatestAlbums,
+		apiGetRecommendVideos
 	} from '@/apis/index.js';
 	import Banner from "../../components/index/Banner.vue"
 	import MainEntry from "../../components/index/MainEntry.vue"
 	import RecommendSong from "../../components/index/RecommendSong.vue"
+	import RecommendVideo from "../../components/index/RecommendVideo.vue"
 
 	export default {
 		data() {
@@ -31,20 +36,25 @@
 				}, {
 					name: '直播'
 				}],
-				songs: []
+				recommendSongs: [],
+				latestMusic: [],
+				latestAlbums: [],
+				recommendVideos: [],
 			}
 		},
 		components: {
 			Banner,
 			MainEntry,
-			RecommendSong
+			RecommendSong,
+			RecommendVideo
 		},
 		onLoad() {
 			this.getBanner()
-			this.getRecommendSongs();
+			this.getRecommendSongs()
+			this.getLatestAlbums()
+			this.getRecommendVideos()
 		},
 		methods: {
-			// 获取轮播图
 			getBanner() {
 				apiGetBanner().then(res => {
 					this.banners = res.banners
@@ -64,13 +74,34 @@
 
 						return tempNum;
 					};
-					this.songs = res.result;
-					this.songs.forEach(item => {
+					this.recommendSongs = res.result;
+					this.recommendSongs.forEach(item => {
 						item.playCount = formatCount(item.playCount);
 					});
 				});
-			}
-		}
+			},
+			getLatestAlbums() {
+				apiGetLatestAlbums().then(res => {
+					this.latestMusic = res.albums;
+					this.latestAlbums = res.albums.slice(0, 3);
+				});
+			},
+			switchAlbum(type) {
+				if (type === 1) {
+					this.latestAlbums = this.latestMusic.slice(0, 3);
+				} else {
+					this.latestAlbums = this.latestMusic.slice(3, 6);
+				}
+			},
+			getRecommendVideos() {
+				const params = {
+					id: 6524
+				};
+				apiGetRecommendVideos(params).then(res => {
+					this.recommendVideos = res.data;
+				});
+			},
+		},
 	}
 </script>
 

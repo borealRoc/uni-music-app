@@ -65,4 +65,11 @@
 			border-top-left-radius: 14rpx;
 		}
 	}
+
+	/* #ifdef MP-WEIXIN */
+	.banner {
+		margin-top: 80rpx;
+	}
+
+	/* #endif */
 </style>
