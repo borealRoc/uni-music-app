@@ -9,39 +9,40 @@
 				}
 			}
 		}, {
+			"path": "pages/video/index",
+			"style": {
+				"navigationBarTitleText": "视频",
+				"app-plus": {
+					"titleNView": false,
+					"bounce": "none", // 取消iOS回弹,避免和下拉刷新冲突
+					"disableScroll": true, // Android小程序卡顿 
+					"softinputNavBar": "none"
+				}
+			}
+		}, {
 			"path": "pages/account/index",
 			"style": {
 				"navigationBarTitleText": "账户",
 				"enablePullDownRefresh": false
 			}
-
 		}, {
 			"path": "pages/cloud/index",
 			"style": {
 				"navigationBarTitleText": "云村",
 				"enablePullDownRefresh": false
 			}
-
 		}, {
 			"path": "pages/mine/index",
 			"style": {
 				"navigationBarTitleText": "我的",
 				"enablePullDownRefresh": false
 			}
-
-		}, {
-			"path": "pages/video/index",
-			"style": {
-				"navigationBarTitleText": "视频",
-				"enablePullDownRefresh": false
-			}
-
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",     // 导航栏标题颜色及状态栏前景颜色，仅支持 black/white
-		"navigationBarTitleText": "Uni App Music",   // 导航栏标题文字内容
-		"navigationBarBackgroundColor": "#F8F8F8",  // 导航栏背景颜色（同状态栏背景色）
+		"navigationBarTextStyle": "black", // 导航栏标题颜色及状态栏前景颜色，仅支持 black/white
+		"navigationBarTitleText": "Uni App Music", // 导航栏标题文字内容
+		"navigationBarBackgroundColor": "#F8F8F8", // 导航栏背景颜色（同状态栏背景色）
 		"backgroundColor": "#F8F8F8", // 窗口的背景色
 		"navigationStyle": "custom"
 	},
