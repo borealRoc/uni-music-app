@@ -15,27 +15,21 @@
 		apiGetLatestAlbums,
 		apiGetRecommendVideos
 	} from '@/apis/index.js';
+	import {
+		Found_NavLists
+	} from '@/model/index.js'
+
 	import Banner from "../../components/index/Banner.vue"
 	import MainEntry from "../../components/index/MainEntry.vue"
-	import RecommendSong from "../../components/index/RecommendSong.vue"
 	import RecommendVideo from "../../components/index/RecommendVideo.vue"
+
+	console.log('Found_NavLists', Found_NavLists)
 
 	export default {
 		data() {
 			return {
 				banners: [],
-				entrys: [{
-					name: '每日推荐'
-				}, {
-					name: '歌单'
-				}, {
-					name: '排行榜',
-					url: '/pages/subpages/index/rank'
-				}, {
-					name: '电台'
-				}, {
-					name: '直播'
-				}],
+				entrys: Found_NavLists,
 				recommendSongs: [],
 				latestMusic: [],
 				latestAlbums: [],
@@ -45,7 +39,6 @@
 		components: {
 			Banner,
 			MainEntry,
-			RecommendSong,
 			RecommendVideo
 		},
 		onLoad() {

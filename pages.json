@@ -15,9 +15,14 @@
 				"app-plus": {
 					"titleNView": false,
 					"bounce": "none", // 取消iOS回弹,避免和下拉刷新冲突
-					"disableScroll": true, // Android小程序卡顿 
-					"softinputNavBar": "none"
+					"disableScroll": true // Android小程序卡顿 
 				}
+			}
+		}, {
+			"path": "pages/mine/index",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": false
 			}
 		}, {
 			"path": "pages/account/index",
@@ -29,12 +34,6 @@
 			"path": "pages/cloud/index",
 			"style": {
 				"navigationBarTitleText": "云村",
-				"enablePullDownRefresh": false
-			}
-		}, {
-			"path": "pages/mine/index",
-			"style": {
-				"navigationBarTitleText": "我的",
 				"enablePullDownRefresh": false
 			}
 		}

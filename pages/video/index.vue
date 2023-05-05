@@ -34,40 +34,16 @@
 	import {
 		apiGetVideoLists
 	} from '@/apis/video.js';
+	import {
+		Video_NavLists
+	} from '@/model/index.js'
+
 	import MescrollUni from "@/components/global/mescroll-uni/mescroll-uni.vue";
 
 	export default {
 		data() {
 			return {
-				navList: [{
-						name: '推荐',
-						id: 34654
-					},
-					{
-						name: 'LOCK直播',
-						id: 23472
-					},
-					{
-						name: '翻唱',
-						id: 33485
-					},
-					{
-						name: '广场',
-						id: 4652
-					},
-					{
-						name: '舞蹈',
-						id: 658785
-					},
-					{
-						name: '游戏',
-						id: 62689
-					},
-					{
-						name: '现场',
-						id: 7456345
-					},
-				],
+				navList: Video_NavLists,
 				curNav: '',
 				sliderWidth: 60,
 				sliderOffset: 0,

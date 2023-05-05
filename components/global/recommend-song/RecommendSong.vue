@@ -39,6 +39,7 @@
 
 <script>
 	export default {
+		name: 'RecommendSong',
 		data() {
 			return {
 				newType: 1,
