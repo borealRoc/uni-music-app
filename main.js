@@ -10,6 +10,10 @@ import './css/index.scss'
 import RecommendSong from '@/components/global/recommend-song/RecommendSong.vue'
 Vue.component('recommend-song', RecommendSong)
 
+import './libs/iconfont.js'
+import SvgIcon from '@/components/global/svg-icon/SvgIcon'
+Vue.component('svg-icon', SvgIcon)
+
 try {
 	function isPromise(obj) {
 		return (

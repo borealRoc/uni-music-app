@@ -74,3 +74,27 @@ export const MyMusic_NavLists = [{
 		imd: 8
 	}
 ]
+
+export const Cloud_NavLists = [{
+		name: '广场',
+		id: 3452
+	},
+	{
+		name: '动态',
+		id: 3462
+	},
+]
+
+export const Cloud_MsgLists = [{
+		name: '他是我见过最年少有为的人',
+		id: ''
+	},
+	{
+		name: '因为一个人而失眠，这真的好吗',
+		id: ''
+	},
+	{
+		name: '花开花落，没有悲愁怎么是少年？',
+		id: ''
+	},
+]

@@ -4,7 +4,7 @@
 			<block slot="left">
 				<image class="top-img left" src="/static/image/mine/l.png"></image>
 			</block>
-			<!-- #ifdef APP-PLUS -->
+			<!-- #ifdef APP-PLUS || H5 -->
 			<block slot="right">
 				<image class="top-img" src="/static/image/mine/r.png"></image>
 			</block>
