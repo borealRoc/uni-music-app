@@ -14,6 +14,8 @@ import './libs/iconfont.js'
 import SvgIcon from '@/components/global/svg-icon/SvgIcon'
 Vue.component('svg-icon', SvgIcon)
 
+Vue.prototype.$imgSuffix = '?imageView&thumbnail=369x0&quality=75&tostatic=0';
+
 try {
 	function isPromise(obj) {
 		return (
