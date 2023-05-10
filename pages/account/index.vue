@@ -13,7 +13,7 @@
 			<view class="empty-user">
 				<view>登录网易云音乐</view>
 				<view>手机电脑多端同步，尽享海量高品质音乐</view>
-				<navigator class="btn" url="/pages/subpages/account/login">
+				<navigator class="btn" url="/pages/account/login">
 					立即登录
 				</navigator>
 			</view>
@@ -85,9 +85,16 @@
 		methods: {
 			openScan() {
 				// this.$refs.scan.open()
-				this.isShowScan = true
+				// this.isShowScan = true
 				// 隐藏底部 tabbar
-				uni.hideTabBar({})
+				// uni.hideTabBar({})
+				
+				uni.scanCode({
+					success: function (res) {
+						console.log('条码类型：' + res.scanType);
+						console.log('条码内容：' + res.result);
+					}
+				});
 			},
 			closeScan() {
 				// this.$refs.scan.close()
@@ -95,7 +102,10 @@
 				uni.showTabBar({})
 			},
 			goCloud() {
-
+				uni.showToast({
+					icon: 'none',
+					title: '功能未开发'
+				});
 			},
 			scroll(e) {
 				let scrollTop = e.detail.scrollTop

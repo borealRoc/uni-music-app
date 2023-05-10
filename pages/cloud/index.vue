@@ -19,7 +19,8 @@
 				@up="upCallback">
 				<view class="date-bar flex-box">
 					<view class="date-bar-left">
-						云村热评墙 <svg-icon iconType="jiantouyou"></svg-icon>
+						云村热评墙 
+						<!-- <svg-icon iconType="jiantouyou"></svg-icon> -->
 						<swiper class="date-bar-swiper" :autoplay="true" :duration="500" :circular="true"
 							:vertical="true">
 							<swiper-item v-for="(item, index) in dateMsg.msgList" :key="index">
