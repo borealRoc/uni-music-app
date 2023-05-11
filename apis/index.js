@@ -34,3 +34,11 @@ export function apiGetRecommendVideos(data) {
 		hideLoading: true
 	})
 }
+// 获取歌单详情
+export function apiAlbumDetail(data) {
+	return request.request({
+		url: '/playlist/detail',
+		method: 'GET',
+		data,
+	})
+}

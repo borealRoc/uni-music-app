@@ -4,8 +4,8 @@
 			<view class="search-box  flex-box">
 				<view class="top-search flex-box flex-item">
 					<image class="search-icon" src="/static/image/search/2.png"></image>
-					<input class="flex-item" :focus="isFocus" type="text" v-model="searchTxt" @confirm="addSearch"
-						confirm-type="search" @input="inputSearch">
+					<input class="flex-item" :focus="isFocus" type="text" v-model="searchTxt" confirm-type="search"
+						@input="inputSearch" @confirm="addSearch">
 				</view>
 				<view class="cancle" @click="close">取消</view>
 			</view>

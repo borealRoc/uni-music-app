@@ -17,3 +17,11 @@ export function apiSearchSuggest(data) {
 		authType: 'None'
 	})
 }
+// 获取搜索
+export function apiSearch(data) {
+	return request.request({
+		url: '/search',
+		method: 'GET',
+		data,
+	})
+}

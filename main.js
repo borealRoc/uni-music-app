@@ -10,11 +10,13 @@ import './css/index.scss'
 import RecommendSong from '@/components/global/recommend-song/RecommendSong.vue'
 Vue.component('recommend-song', RecommendSong)
 
-import './libs/iconfont.js'
+// import './libs/iconfont.js'
 import SvgIcon from '@/components/global/svg-icon/SvgIcon'
 Vue.component('svg-icon', SvgIcon)
 
 Vue.prototype.$imgSuffix = '?imageView&thumbnail=369x0&quality=75&tostatic=0';
+
+import store from './store'
 
 try {
 	function isPromise(obj) {
@@ -45,7 +47,8 @@ try {
 } catch (error) {}
 
 const app = new Vue({
-	...App
+	...App,
+	store
 })
 app.$mount()
 // #endif
