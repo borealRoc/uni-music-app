@@ -10,10 +10,10 @@
 			<view class="tac">{{title}}</view>
 		</uni-nav-bar>
 		<scroll-view scroll-y="true" class="page-content" @scroll="scroll" :scroll-top="scrollTop">
-			<view class="empty-user">
+			<view class="empty-user" v-if="!userInfo.hasLogin">
 				<view>登录网易云音乐</view>
 				<view>手机电脑多端同步，尽享海量高品质音乐</view>
-				<navigator class="btn" url="/pages/account/login">
+				<navigator class="btn" url="/pages/subpages/account/login">
 					立即登录
 				</navigator>
 			</view>
@@ -67,7 +67,7 @@
 	import UniList from '@/components/global/uni-list/uni-list.vue'
 	import UniListItem from '@/components/global/uni-list-item/uni-list-item.vue'
 	// import Scan from '@/components/global/scan/Scan.vue'
-
+	import { mapState, mapMutations } from 'vuex';
 	export default {
 		components: {
 			UniNavBar,
@@ -81,6 +81,9 @@
 				scrollTop: 0,
 				isShowScan: false
 			}
+		},
+		computed: {
+			...mapState(['userInfo'])
 		},
 		methods: {
 			openScan() {

@@ -35,6 +35,10 @@
 	import {
 		apiLogin
 	} from '@/apis/account.js';
+	import {
+		mapState,
+		mapMutations
+	} from 'vuex';
 
 	export default {
 		data() {
@@ -45,7 +49,11 @@
 				password: '',
 			};
 		},
+		computed: {
+			...mapState(['userInfo'])
+		},
 		methods: {
+			...mapMutations(['storeLogin']),
 			setInputNumber() {
 				this.$nextTick(() => {
 					document.querySelector('.js-input-numer input').setAttribute("pattern", "[0-9]*")
@@ -59,12 +67,10 @@
 						if (res.provider && res.provider.length) {
 							for (let i = 0; i < res.provider.length; i++) {
 								var tempProvider = res.provider[i];
-								if (~providerList.indexOf(tempProvider)) {
-									this.providerList.push({
-										value: tempProvider,
-										image: '/static/image/login/' + tempProvider + '.png'
-									});
-								}
+								this.providerList.push({
+									value: tempProvider,
+									image: '/static/image/login/' + tempProvider + '.png'
+								});
 							}
 							this.hasProvider = true;
 						}
@@ -106,7 +112,11 @@
 							});
 							return false
 						}
-						console.log('res', res)
+						const temp = {
+							token: res.access_token,
+							profile: res.data.profile
+						}
+						this.storeLogin(temp)
 					})
 				}
 			},
@@ -116,7 +126,57 @@
 					icon: 'none',
 					title: msg
 				});
-			}
+			},
+			// 微信授权登陆
+			getUserInfo(res) {
+				uni.login({
+					success(res) {
+						console.log('login-res', res)
+						uni.getUserInfo({
+							success(res) {
+								console.log('uni.getUserInfo', res)
+							}
+						})
+					}
+				})
+
+			},
+			// 第三方授权登录
+			authLogin(value) {
+				uni.login({
+					provider: value,
+					success: res => {
+						console.log(res)
+						uni.getUserInfo({
+							provider: value,
+							success: infoRes => {
+								console.log(infoRes)
+								// 这里有一个验证用户接口，判定授权的QQ/微博/微信有无绑定平台账号，如果没有新建账号，有的话平台账号登录
+								// uni.request({
+								// })
+								let profile = {}
+								infoRes.userInfo.nickname = infoRes.userInfo.nickName
+								profile = infoRes.userInfo
+
+								const temp = {
+									token: '',
+									profile,
+								}
+
+								this.storeLogin(temp)
+
+								// 登录完之后到首页
+								uni.switchTab({
+									url: '/pages/index/index'
+								});
+							}
+						});
+					},
+					fail: err => {
+						console.error('授权失败：' + JSON.stringify(err));
+					}
+				});
+			},
 		},
 		onReady() {
 			this.getProvider()

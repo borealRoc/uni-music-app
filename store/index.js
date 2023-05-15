@@ -26,22 +26,16 @@ const store = new Vuex.Store({
 		playList: storePlayList,
 	},
 	mutations: {
-		storeLeaveTime(state, payload) { // 记录离开时间
-			let date = new Date()
-			state.leaveTime = date.getTime()
-		},
 		storeLogin(state, payload) { // 改变登录状态
 			const temp = {
 				hasLogin: true,
 				token: payload.token,
 				profile: payload.profile
 			}
-
 			state.userInfo = Object.assign({}, state.userInfo, temp)
-
 			// 将用户信息保存在本地
 			uni.setStorageSync('userInfo', JSON.stringify(state.userInfo))
-
+		
 		},
 		storeLogout(state) { //退出登录
 			const temp = {
@@ -50,9 +44,13 @@ const store = new Vuex.Store({
 				profile: {}
 			}
 			state.userInfo = Object.assign({}, state.userInfo, temp)
-
 			uni.removeStorageSync('userInfo')
 		},
+		storeLeaveTime(state, payload) { // 记录离开时间
+			let date = new Date()
+			state.leaveTime = date.getTime()
+		},
+
 		storeMessage(state, payload) { // 角标信息
 			state.message = {
 				...state.message,
