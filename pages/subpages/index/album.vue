@@ -208,9 +208,13 @@
 			// 设置播放列表
 			setPlayList(item) {
 				// 传递歌单信息到 store
+				console.log('uni-item', item)
 				this.storePlayList({
 					curSong: item,
 					list: this.songList,
+				})
+				uni.navigateTo({
+					url: '/pages/subpages/index/play'
 				})
 			}
 		}
