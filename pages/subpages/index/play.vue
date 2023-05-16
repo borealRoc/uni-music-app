@@ -2,7 +2,8 @@
 	<view class="play-page" :style="bgStyle">
 		<view class="bg"></view>
 		<!-- 拨条 -->
-		<view class="strip-box" :class="playState ? 'active' : ''">
+		<!-- <view class="strip-box" :class="playState ? 'active' : ''"> -->
+		<view class="strip-box active">
 			<image class="img" src="https://s3.music.126.net/mobile-new/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862="></image>
 		</view>
 	</view>

@@ -1,8 +1,8 @@
 import Request from './request.js'
 
 // need to change baseUrl
-// const baseUrl = process.env.NODE_ENV === 'development' ? "http://localhost:3000" : "http://122.51.183.19"
-const baseUrl = "https://www.gzamon.wang/api"
+const baseUrl = process.env.NODE_ENV === 'development' ? "http://localhost:3000" : "http://122.51.183.19"
+// const baseUrl = "https://www.gzamon.wang/api"
 
 const config = {
 	baseUrl: baseUrl
